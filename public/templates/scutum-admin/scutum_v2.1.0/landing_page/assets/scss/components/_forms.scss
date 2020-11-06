@@ -1,0 +1,47 @@
+.sc-input-wrapper {
+	position: relative;
+	label {
+		position: absolute;
+		left: 8px;
+		top: 0;
+		background: $white;
+		transition: all 120ms $easing;
+		color: $text-color-secondary;
+		padding: 2px 4px;
+		border-radius: $border-radius;
+	}
+	input + label {
+		top: 50%;
+		margin-top: -14px;
+	}
+	textarea + label {
+		top: 24%;
+		margin-top: -14px;
+	}
+}
+.uk-input {
+	height: auto;
+	border-radius: $border-radius;
+	border: 1px solid $border-color;
+	background: $white !important;
+	&:focus + label,
+	&.sc-input-filled + label {
+		@include font-size(14px);
+	}
+}
+
+input.uk-input {
+	padding: 24px 12px 8px;
+	&:focus + label,
+	&.sc-input-filled + label {
+		top: 28%;
+	}
+}
+
+textarea.uk-input {
+	padding: 16px 12px 8px;
+	&:focus + label,
+	&.sc-input-filled + label {
+		top: 15%;
+	}
+}

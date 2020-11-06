@@ -1,0 +1,405 @@
+@mixin buttonVariant {
+	&, &:hover, &:focus, &:active, &.uk-active {@content;}
+}
+
+.sc-button {
+	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: $white;
+	border: none;
+	border-radius: 4px;
+	@include elevation(2);
+	height: 36px;
+	min-width: 70px;
+	padding: 4px 16px;
+	margin: 0;
+	text-align: center;
+	text-shadow: none;
+	text-transform: uppercase;
+	transition: all 240ms $easing;
+	color: $text-color;
+	box-sizing: border-box;
+	cursor: pointer;
+	-webkit-appearance: none;
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: 500 !important;
+	@include font-size(14px, true);
+	line-height: 30px !important;
+	overflow: hidden;
+	will-change: box-shadow, color;
+	&:focus,
+	&:active,
+	&.uk-button-dropdown.uk-open {
+		background: $white;
+		outline: none;
+		text-decoration: none;
+		color: $text-color;
+		> i.mdi {
+			color: $text-color;
+		}
+	}
+	&:hover {
+		color: $text-color;
+		@include elevation(4);
+		text-decoration: none;
+	}
+	&:active,
+	&.uk-active,
+	&.uk-button-dropdown.uk-open {
+		@include elevation(8);
+	}
+	&-primary {
+		@include buttonVariant {
+			background: $theme-color-dark;
+		}
+	}
+	&-secondary {
+		@include buttonVariant {
+			background: $theme-color-dark-complimentary;
+		}
+	}
+	&-danger {
+		@include buttonVariant {
+			background: $danger-color;
+		}
+	}
+	&-success {
+		@include buttonVariant {
+			background: $success-color;
+		}
+	}
+	&-warning {
+		@include buttonVariant {
+			background: $warning-color;
+		}
+	}
+	&-danger,
+	&-primary,
+	&-secondary,
+	&-success,
+	&-warning,
+	&-custom {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.uk-active,
+		> i {
+			&,
+			&:before {
+				color: $white;
+			}
+		}
+	}
+	.disabled > &,
+	&:disabled,
+	&-disabled {
+		@include buttonVariant {
+			color: $text-color-secondary;
+			background: #eaeaea;
+			box-shadow: none !important;
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+	> i {
+		&.mdi {
+			transition: all 140ms $easing;
+			color: $text-color-secondary;
+			&:before {
+				@include font-size(18px);
+			}
+		}
+	}
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	&-block {
+		width: 100%;
+		& + & {
+			margin-left: 0;
+			margin-top: 12px;
+		}
+	}
+	&-flex {
+		&,
+		> span {
+			display: inline-flex;
+			align-items: center;
+		}
+		.mdi {
+			margin-top: -2px;
+			height: 24px;
+			&:before {
+				line-height: 1;
+			}
+		}
+	}
+	// flat buttons
+	&-flat {
+		background: none !important;
+		box-shadow: none !important;
+		&:hover {
+			background: $hover-color !important;
+		}
+		&:active,
+		&.uk-active {
+			background: $button-active-bg;
+		}
+		&-primary {
+			@include buttonVariant {
+				color: $theme-color-dark;
+			}
+			&.uk-active {
+				color: $theme-color-dark;
+				background: $theme-color-light;
+			}
+			&:hover {
+				background: $theme-color-light !important;
+			}
+		}
+		&-danger {
+			@include buttonVariant {
+				color: $danger-color;
+			}
+			&.uk-active {
+				color: $danger-color-dark;
+				background: $danger-color-bg;
+			}
+			&:hover {
+				background: $danger-color-bg !important;
+			}
+		}
+		&-success {
+			@include buttonVariant {
+				color: $success-color;
+			}
+			&.uk-active {
+				color: $success-color-dark;
+				background: $success-color-bg;
+			}
+			&:hover {
+				background: $success-color-bg !important;
+			}
+		}
+		&-warning {
+			@include buttonVariant {
+				color: $warning-color;
+			}
+			&.uk-active {
+				color: $warning-color-dark;
+				background: $warning-color-bg;
+			}
+			&:hover {
+				background: $warning-color-bg !important;
+			}
+		}
+		&:disabled,
+		&.sc-button-disabled {
+			color: #a8a8a8;
+			background: $white;
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+	// outline buttons
+	&-outline {
+		box-shadow: none !important;
+		border: 1px solid $border-color;
+		line-height: 28px !important;
+		color: $text-color;
+		background: transparent;
+		&-square {
+			width: 36px !important;
+		}
+		&:active,
+		&.uk-active,
+		&:hover,
+		&.uk-button-dropdown.uk-open {
+			border-color: $border-color-hover;
+		}
+		&-danger {
+			@include buttonVariant {
+				color: $danger-color;
+				background: none;
+			}
+			&:hover {
+				border-color: $danger-color;
+			}
+			&.uk-active {
+				color: $danger-color-dark;
+				background: $danger-color-bg;
+			}
+			&.sc-button-icon {
+				> i {
+					&.mdi {
+						color: $danger-color;
+					}
+				}
+			}
+		}
+		&-primary {
+			@include buttonVariant {
+				color: $theme-color-dark;
+				background: none;
+			}
+			&:hover {
+				border-color: $theme-color;
+			}
+			&.uk-active {
+				color: $theme-color-dark;
+				background: $theme-color-light;
+			}
+			&.sc-button-icon {
+				> i {
+					&.mdi {
+						color: $theme-color;
+					}
+				}
+			}
+		}
+		&-success {
+			@include buttonVariant {
+				color: $success-color;
+				background: none;
+			}
+			&:hover {
+				border-color: $success-color;
+			}
+			&.uk-active {
+				color: $success-color-dark;
+				background: $success-color-bg;
+			}
+			&.sc-button-icon {
+				> i {
+					&.mdi {
+						color: $success-color;
+					}
+				}
+			}
+		}
+		&-warning {
+			@include buttonVariant {
+				color: $warning-color;
+				background: none;
+			}
+			&:hover {
+				border-color: $warning-color;
+			}
+			&.uk-active {
+				color: $warning-color-dark;
+				background: $warning-color-bg;
+			}
+			&.sc-button-icon {
+				> i {
+					&.mdi {
+						color: $warning-color;
+					}
+				}
+			}
+		}
+		&:disabled,
+		&.sc-button-disabled {
+			color: #a8a8a8 !important;
+			border-color: $border-color-light;
+			background: $white;
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+	&-wrapper {
+		display: inline-block;
+		text-align: center;
+	}
+	&-round {
+		border-radius: 50%;
+		padding: 4px;
+		.mdi {
+			&:before {
+				margin-top: -1px;
+			}
+		}
+	}
+	&-state {
+		&-loading {
+			//transition: all 280ms $easing;
+			transition-timing-function: ease-in-out;
+			width: 100%;
+			&-start {
+				font-size: 0;
+				background: $white !important;
+			}
+			&-end {
+				width: 36px;
+				min-width: 36px;
+				border-radius: 50%;
+			}
+		}
+	}
+	// social media buttons
+	&-facebook {
+		background: #3b5998 !important;
+	}
+	&-twitter {
+		background: #00aced !important;
+	}
+	&-gplus {
+		background: #dd4b39 !important;
+	}
+	&-twitch {
+		background: #6441a5 !important;
+	}
+	&-youtube {
+		background: #c4302b !important;
+	}
+	&-linkedin {
+		background: #0e76a8 !important;
+	}
+	&-social {
+		display: inline-flex;
+		align-items: center;
+		min-width: inherit;
+		&,
+		> i {
+			color: $white !important;
+		}
+		i {
+			margin-top: 2px;
+		}
+		> span {
+			padding-top: 2px;
+			margin-right: 8px;
+		}
+	}
+	// size modifiers
+	&-mini {
+		line-height: 18px !important;
+		min-width: 12px;
+		font-size: 11px !important;
+		height: 24px;
+		padding: 4px 8px;
+		&.sc-button-outline {
+			line-height: 16px !important;
+		}
+	}
+	&-small {
+		line-height: 26px !important;
+		height: 32px;
+		min-width: 14px;
+		font-size: 12px !important;
+		padding: 4px 8px;
+		&.sc-button-outline {
+			line-height: 22px !important;
+		}
+	}
+	&-large {
+		line-height: 42px !important;
+		height: 48px;
+		font-size: 16px !important;
+		min-width: 100px;
+		&.sc-button-outline {
+			line-height: 40px !important;
+		}
+	}
+}

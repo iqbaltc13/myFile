@@ -1,0 +1,3908 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Scutum Admin Template</title>
+    <meta name="description" content="Scutum Admin Template" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/fav/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav/favicon-16x16.png">
+	<link rel="mask-icon" href="assets/img/fav/safari-pinned-tab.svg" color="#5bbad5">
+
+	<link rel="manifest" href="manifest.json">
+	<meta name="theme-color" content="#00838f">
+
+
+	<!-- polyfills -->
+	<script src="assets/js/vendor/polyfills.min.js"></script>
+
+	<!-- UIKit js -->
+    <script src="assets/js/uikit.min.js"></script>
+</head>
+<body>
+<script>
+	// prevent FOUC
+	var html = document.getElementsByTagName('html')[0];
+	html.style.backgroundColor = '#f5f5f5';
+	document.body.style.visibility = 'hidden';
+	document.body.style.overflow = 'hidden';
+	document.body.style.apacity = '0';
+	document.body.style.maxHeight = "100%";
+</script>
+<header id="sc-header">
+	<nav class="uk-navbar uk-navbar-container" data-uk-navbar="mode: click; duration: 360">
+		<div class="uk-navbar-left nav-overlay-small uk-margin-right uk-navbar-aside">
+			<a href="#" id="sc-sidebar-main-toggle"><i class="mdi mdi-backburger sc-menu-close"></i><i class="mdi mdi-menu sc-menu-open"></i></a>
+			<div class="sc-brand uk-visible@s">
+				<a href="dashboard-v1.html"><img src="assets/img/logo.png" alt=""></a>
+			</div>
+		</div>
+		<div class="nav-overlay nav-overlay-small uk-navbar-right uk-flex-1" hidden>
+			<a class="uk-navbar-toggle uk-visible@m" data-uk-toggle="target: .nav-overlay; animation: uk-animation-slide-top" href="#"><i class="mdi mdi-close sc-icon-24"></i></a>
+			<a class="uk-navbar-toggle uk-hidden@m uk-padding-remove-left" data-uk-toggle="target: .nav-overlay-small; animation: uk-animation-slide-top" href="#"><i class="mdi mdi-close sc-icon-24"></i></a>
+			<div class="uk-navbar-item uk-width-expand uk-padding-remove-right">
+				<form class="uk-search uk-search-navbar uk-width-1-1 uk-flex">
+					<input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+					<button class="sc-button sc-button-small sc-button-icon sc-button-flat uk-margin-small-left" type="button"><i class="mdi mdi-magnify sc-icon-24 md-color-white"></i></button>
+				</form>
+			</div>
+		</div>
+		<div class="uk-navbar-left nav-overlay uk-margin-right uk-visible@m">
+			<ul class="uk-navbar-nav">
+				<li>
+					<a href="javascript:void(0)" class="md-color-white sc-padding-remove-left"><i class="mdi mdi-view-grid"></i></a>
+					<div class="uk-navbar-dropdown sc-padding-medium">
+						<div class="uk-child-width-1-2 uk-child-width-1-3@s uk-grid uk-grid-small" data-uk-grid>
+							<div>
+								<a href="pages-mailbox.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-email-outline sc-icon-32 sc-text-lh-1 md-color-green-700"></i>
+									<span class="uk-text-medium sc-color-primary">Mailbox</span>
+								</a>
+							</div>
+							<div>
+								<a href="pages-poi_listing.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-map-marker sc-icon-32 sc-text-lh-1 md-color-red-700"></i>
+									<span class="uk-text-medium sc-color-primary">POI</span>
+								</a>
+							</div>
+							<div>
+								<a href="pages-chat.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-message-outline sc-icon-32 sc-text-lh-1 md-color-purple-700"></i>
+									<span class="uk-text-medium sc-color-primary">Chat</span>
+								</a>
+							</div>
+							<div>
+								<a href="plugins-calendar.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-calendar sc-icon-32 sc-text-lh-1 md-color-light-blue-700"></i>
+									<span class="uk-text-medium sc-color-primary">Calendar</span>
+								</a>
+							</div>
+							<div>
+								<a href="pages-user_profile.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-account sc-icon-32 sc-text-lh-1 md-color-blue-grey-700"></i>
+									<span class="uk-text-medium sc-color-primary">Profile</span>
+								</a>
+							</div>
+							<div>
+								<a href="plugins-charts.html" class="uk-flex uk-flex-column uk-flex-middle uk-box-shadow-hover-small sc-round sc-padding-small">
+									<i class="mdi mdi-chart-multiline sc-icon-32 sc-text-lh-1 md-color-amber-700"></i>
+									<span class="uk-text-medium sc-color-primary">Charts</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="nav-overlay nav-overlay-small uk-navbar-right">
+			<ul class="uk-navbar-nav">
+				<li>
+					<a class="uk-navbar-toggle uk-visible@m" href="#" data-uk-toggle="target: .nav-overlay; animation: uk-animation-slide-top"><i class="mdi mdi-magnify"></i></a>
+          <a class="uk-navbar-toggle uk-hidden@m" href="#" id="sc-search-main-toggle-mobile" data-uk-toggle="target: .nav-overlay-small; animation: uk-animation-slide-top"><i class="mdi mdi-magnify"></i></a>
+				</li>
+				<li class="uk-visible@l">
+					<a href="#" id="sc-js-fullscreen-toggle"><i class="mdi mdi-fullscreen sc-js-el-hide"></i><i class="mdi mdi-fullscreen-exit sc-js-el-show"></i></a>
+				</li>
+				<li class="uk-visible@s">
+					<a href="#" class="sc-text-semibold">
+						EN
+					</a>
+					<div class="uk-navbar-dropdown uk-dropdown-small">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="#">Deutsch</a></li>
+							<li><a href="#">Español</a></li>
+							<li><a href="#">Français</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="#">
+						<span class="mdi mdi-email"></span>
+					</a>
+					<div class="uk-navbar-dropdown sc-padding-remove">
+						<div class="uk-panel uk-panel-scrollable uk-height-medium">
+							<ul class="uk-list uk-list-divider sc-js-edge-fix">
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<span class="sc-avatar-initials md-color-white md-bg-red-500" title="ebert.wyman">MO</span>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<span class="uk-text-small uk-text-muted uk-width-expand">07:55 AM</span>
+										<span class="uk-display-block uk-text-truncate">Dolor odio repellat voluptatem illo alias officia corrupti nemo dignissimos.</span>
+									</a>
+								</li>
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<img src="assets/img/avatars/avatar_05_sm.png" class="sc-avatar " alt="qmann"/>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<div class="uk-text-small uk-text-muted uk-width-expand">Sep 17, 2019</div>
+										<span class="uk-display-block uk-text-truncate">Reprehenderit voluptas maiores animi quas qui soluta optio quidem praesentium.</span>
+									</a>
+								</li>
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<span class="sc-avatar-initials md-color-white md-bg-light-green-500" title="runte.quinn">KS</span>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<span class="uk-text-small uk-text-muted uk-width-expand">05:55 AM</span>
+										<span class="uk-display-block uk-text-truncate">Recusandae ex optio ullam quo cum aut recusandae quia.</span>
+									</a>
+								</li>
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<img src="assets/img/avatars/avatar_06_sm.png" class="sc-avatar " alt="lera01"/>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<span class="uk-text-small uk-text-muted uk-width-expand">Sep 16, 2019</span>
+										<span class="uk-display-block uk-text-truncate">Veritatis quo molestias voluptas provident voluptates et consectetur reprehenderit nobis sequi.</span>
+									</a>
+								</li>
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<img src="assets/img/avatars/avatar_02_sm.png" class="sc-avatar " alt="brooks.oconnell"/>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<span class="uk-text-small uk-text-muted uk-width-expand">Sep 14, 2019</span>
+										<span class="uk-display-block uk-text-truncate">Nihil atque et ut fuga cupiditate.</span>
+									</a>
+								</li>
+								<li class="sc-list-group">
+									<div class="sc-list-addon">
+										<span class="sc-avatar-initials md-color-white md-bg-purple-500" title="gussie.schamberger">FA</span>
+									</div>
+									<a href="#" class="sc-list-body uk-display-block">
+										<span class="uk-text-small uk-text-muted uk-width-expand">Sep 12, 2019</span>
+										<span class="uk-display-block uk-text-truncate">Neque eos quo hic quas sed consequuntur iste est dolorum voluptas.</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<a href="pages-mailbox.html" class="uk-flex uk-text-small sc-padding-small-ends sc-padding-medium">Show all in mailbox</a>
+					</div>
+				</li>
+				<li class="uk-visible@s">
+					<a href="#">
+						<span class="mdi mdi-bell uk-display-inline-block">
+							<span class="sc-indicator md-bg-color-red-600"></span>
+						</span>
+					</a>
+					<div class="uk-navbar-dropdown md-bg-grey-100">
+            <div class="sc-padding-medium sc-padding-small-ends">
+                <div class="uk-text-right uk-margin-medium-bottom">
+                    <button class="sc-button sc-button-outline sc-button-mini sc-js-clear-alerts">Clear all</button>
+                </div>
+                <ul class="uk-list uk-margin-remove" id="sc-header-alerts">
+                    <li class="sc-border sc-round md-bg-white">
+                        <div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-alert-outline md-color-red-600"></i></div>
+                        <div class="uk-flex-1 uk-text-small">
+                            Information Page Not Found!
+                        </div>
+                    </li>
+                    <li class="uk-margin-small-top sc-border sc-round md-bg-white">
+                        <div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-email-check-outline md-color-blue-600"></i></div>
+                        <div class="uk-flex-1 uk-text-small">
+                            A new password has been sent to your e-mail address.
+                        </div>
+                    </li>
+                    <li class="uk-margin-small-top sc-border sc-round md-bg-white">
+                        <div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-alert-outline md-color-red-600"></i></div>
+                        <div class="uk-flex-1 uk-text-small">
+                            You do not have permission to access the API!
+                        </div>
+                    </li>
+                    <li class="uk-margin-small-top sc-border sc-round md-bg-white">
+                        <div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-check-all md-color-light-green-600"></i></div>
+                        <div class="uk-flex-1 uk-text-small">
+                            Your enquiry has been successfully sent.
+                        </div>
+                    </li>
+                </ul>
+                <div class="uk-text-medium uk-text-center sc-js-empty-message sc-text-semibold sc-padding-ends" style="display: none">No alerts!</div>
+            </div>
+					</div>
+				</li>
+				<li>
+					<a href="#"><img src="assets/img/avatars/avatar_default_sm.png" alt=""></a>
+					<div class="uk-navbar-dropdown uk-dropdown-small">
+						<ul class="uk-nav uk-nav-navbar">
+							<li><a href="pages-user_profile.html">Profile</a></li>
+							<li><a href="pages-settings.html">Settings</a></li>
+							<li><a href="login_page.html">Log Out</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+      <a href="#" class="sc-js-offcanvas-toggle md-color-white uk-margin-left uk-hidden@l"><i class="mdi mdi-menu sc-offcanvas-open"></i><i class="mdi mdi-arrow-right sc-offcanvas-close"></i></a>
+		</div>
+	</nav>
+</header>
+
+<aside id="sc-sidebar-main">
+    <div class="uk-offcanvas-bar">
+	    <div data-sc-scrollbar="visible-y">
+	        <ul class="sc-sidebar-menu uk-nav">
+	        
+	            
+	                <li class="sc-sidebar-menu-heading"><span>Applications</span></li>
+	                
+	            	        
+	            	            <li title="Chat">
+	                <a href="pages-chat.html">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-message-outline"></i>
+	                    
+	                    </span><span class="uk-nav-title">Chat</span>
+	                </a>
+	                	            </li>
+	            	        
+	            	            <li title="Invoices">
+	                <a href="pages-invoices.html">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-receipt"></i>
+	                    
+	                    </span><span class="uk-nav-title">Invoices</span>
+	                </a>
+	                	            </li>
+	            	        
+	            	            <li title="Mailbox">
+	                <a href="pages-mailbox.html">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-email-outline"></i>
+	                    
+	                    </span><span class="uk-nav-title">Mailbox</span>
+	                </a>
+	                	            </li>
+	            	        
+	            	            <li title="Task Board">
+	                <a href="pages-task_board.html">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-calendar-text"></i>
+	                    
+	                    </span><span class="uk-nav-title">Task Board</span>
+	                </a>
+	                	            </li>
+	            	        
+	            	            <li title="Notes">
+	                <a href="pages-notes.html">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-note-outline"></i>
+	                    
+	                    </span><span class="uk-nav-title">Notes</span>
+	                </a>
+	                	            </li>
+	            	        
+	            
+	                <li class="sc-sidebar-menu-heading"><span>Menu</span></li>
+	                
+	            	        
+	            	            <li title="Dashboards">
+	                <a href="#">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-view-dashboard-variant"></i>
+	                    
+	                    </span><span class="uk-nav-title">Dashboards</span>
+	                </a>
+	                
+	                    <ul class="sc-sidebar-menu-sub">
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="dashboard-v1.html">		                                		                                Dashboard 1	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="dashboard-v2.html">		                                		                                Dashboard 2	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    
+	                    </ul>
+	                	            </li>
+	            	        
+	            	            <li title="Forms">
+	                <a href="#">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-format-line-style"></i>
+	                    
+	                    </span><span class="uk-nav-title">Forms</span>
+	                </a>
+	                
+	                    <ul class="sc-sidebar-menu-sub">
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="forms-regular_elements.html">		                                		                                Regular Elements	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="forms-advanced_elements.html">		                                		                                Advanced Elements	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="forms-dynamic_fields.html">		                                		                                Dynamic Fields	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="forms-validation.html">		                                		                                Validation	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        	                            	                                <li>
+	                                    <a href="#">Form Examples</a>	                                    <ul>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-advertising_evaluation_form.html">		                                            		                                            Advertising Evaluation Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-booking_form.html">		                                            		                                            Booking Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-car_rental_form.html">		                                            		                                            Car Rental Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-checkout_form.html">		                                            		                                            Checkout Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-contact_forms.html">		                                            		                                            Contact Forms	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-job_application_form.html">		                                            		                                            Job Application Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-medical_history_form.html">		                                            		                                            Medical History Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-registration_form.html">		                                            		                                            Registration Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-rental_application_form.html">		                                            		                                            Rental Application Form	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_examples-transaction_feedback_form.html">		                                            		                                            Transaction Feedback Form	                                            </a>
+	                                        </li>
+	                                    
+	                                    </ul>
+	                                </li>
+	                            
+	                        
+	                        
+	                    	                        	                            	                                <li>
+	                                    <a href="#">Wizard</a>	                                    <ul>
+	                                    	                                        <li>
+	                                            <a href="forms_wizard-horizontal.html">		                                            		                                            Horizontal	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_wizard-horizontal_minimal.html">		                                            		                                            Horizontal Minimal	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_wizard-vertical.html">		                                            		                                            Vertical	                                            </a>
+	                                        </li>
+	                                    	                                        <li>
+	                                            <a href="forms_wizard-vertical_minimal.html">		                                            		                                            Vertical Minimal	                                            </a>
+	                                        </li>
+	                                    
+	                                    </ul>
+	                                </li>
+	                            
+	                        
+	                        
+	                    	                        	                            	                                <li class="sc-sidebar-menu-heading"><span>WYSIWYG Editors</span></li>
+	                                	                                    <li>
+	                                    	                                        <a href="forms_wysiwyg-ckeditor.html">		                                        		                                        CKEditor	                                        </a>
+	                                    	                                    </li>
+	                                	                                    <li>
+	                                    	                                        <a href="forms_wysiwyg-tinymce.html">		                                        		                                        TinyMCE	                                        </a>
+	                                    	                                    </li>
+	                                
+	                            
+	                        
+	                        
+	                    
+	                    </ul>
+	                	            </li>
+	            	        
+	            	            <li title="Components">
+	                <a href="#">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-puzzle"></i>
+	                    
+	                    </span><span class="uk-nav-title">Components</span>
+	                </a>
+	                
+	                    <ul class="sc-sidebar-menu-sub">
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-accordion.html">		                                		                                Accordion	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-alert.html">		                                		                                Alert	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-animations.html">		                                		                                Animations	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-avatars.html">		                                		                                Avatars	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-badge_label.html">		                                		                                Badge, Label	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-base.html">		                                		                                Base	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-breadcrumb.html">		                                			                                <span class="uk-label">new</span>
+		                                		                                Breadcrumb	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-buttons.html">		                                		                                Buttons	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-fab_buttons.html">		                                		                                FAB Buttons	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-cards.html">		                                		                                Cards	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-color_palette.html">		                                		                                Color Palette	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-drop_dropdowns.html">		                                		                                Drop/Dropdowns	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-filters.html">		                                		                                Filters	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-footer.html">		                                		                                Footer	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-grid.html">		                                		                                Grid	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-icons.html">		                                		                                Icons	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-lists.html">		                                		                                Lists	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-masonry.html">		                                		                                Masonry	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-modals_dialogs.html">		                                		                                Modals/Dialogs	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-notifications.html">		                                		                                Notifications	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-pagination.html">		                                			                                <span class="uk-label">new</span>
+		                                		                                Pagination	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-progress_spinners.html">		                                		                                Progress/Spinners	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-scrollable.html">		                                		                                Scrollable	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-slider.html">		                                		                                Slider	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-sortable.html">		                                		                                Sortable	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-tables.html">		                                		                                Tables	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-tabs.html">		                                		                                Tabs	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-timeline.html">		                                		                                Timeline	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-toolbar.html">		                                		                                Toolbar	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="components-tooltips.html">		                                		                                Tooltips	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    
+	                    </ul>
+	                	            </li>
+	            	        
+	            	            <li title="Pages">
+	                <a href="#">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-application"></i>
+	                    
+	                    </span><span class="uk-nav-title">Pages</span>
+	                </a>
+	                
+	                    <ul class="sc-sidebar-menu-sub">
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-blank.html">		                                		                                Blank	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-blank_header_expanded.html">		                                		                                Blank (expanded header)	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li class="sc-page-active">
+	                            
+	                                <a href="pages-contact_list.html">		                                		                                Contact List	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-contact_list_single.html">		                                		                                Contact List (single)	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        	                            	                                <li class="sc-sidebar-menu-heading"><span>Error Pages</span></li>
+	                                	                                    <li>
+	                                    	                                        <a href="error_404.html">		                                        		                                        Error 404	                                        </a>
+	                                    	                                    </li>
+	                                	                                    <li>
+	                                    	                                        <a href="error_500.html">		                                        		                                        Error 500	                                        </a>
+	                                    	                                    </li>
+	                                
+	                            
+	                        
+	                        	                            <li class="sc-sidebar-menu-separator"></li>
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-gallery.html">		                                		                                Gallery	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-help_faq.html">		                                		                                Help/Faq	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        	                            	                                <li class="sc-sidebar-menu-heading"><span>Issue Tracker</span></li>
+	                                	                                    <li>
+	                                    	                                        <a href="pages-issues_list.html">		                                        			                                        <span class="uk-label">new</span>
+		                                        		                                        List View	                                        </a>
+	                                    	                                    </li>
+	                                	                                    <li>
+	                                    	                                        <a href="pages-issue_details.html">		                                        			                                        <span class="uk-label">new</span>
+		                                        		                                        Issue Details	                                        </a>
+	                                    	                                    </li>
+	                                
+	                            
+	                        
+	                        	                            <li class="sc-sidebar-menu-separator"></li>
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="login_page.html">		                                		                                Login Page	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-poi_listing.html">		                                		                                POI listing	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-pricing_tables.html">		                                		                                Pricing Tables	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-settings.html">		                                		                                Settings	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="pages-user_profile.html">		                                		                                User Profile	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    
+	                    </ul>
+	                	            </li>
+	            	        
+	            	            <li title="Plugins">
+	                <a href="#">
+	                    	                        <span class="uk-nav-icon"><i class="mdi mdi-power-plug"></i>
+	                    
+	                    </span><span class="uk-nav-title">Plugins</span>
+	                </a>
+	                
+	                    <ul class="sc-sidebar-menu-sub">
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-ajax.html">		                                		                                Ajax	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-calendar.html">		                                		                                Calendar	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-charts.html">		                                		                                Charts	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-code_editor.html">		                                		                                Code Editor	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-data_grid.html">		                                		                                Data Grid	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-datatables.html">		                                		                                Datatables	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-diff_tool.html">		                                		                                Diff Tool	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-gantt_chart.html">		                                		                                Gantt Chart	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-google_maps.html">		                                		                                Google Maps	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-idle_timeout.html">		                                		                                Idle Timeout	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-image_cropper.html">		                                		                                Image Cropper	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-push_notifications.html">		                                		                                Push Notifications	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-tour.html">		                                		                                Tour	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-tree.html">		                                		                                Tree	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    	                        
+	                        <li>
+	                            
+	                                <a href="plugins-vector_maps.html">		                                		                                Vector Maps	                                </a>
+	                            
+	                        </li>
+	                        
+	                        
+	                    
+	                    </ul>
+	                	            </li>
+	            	        	            <li title="Multi-level">
+	                <a href="#">
+	                    <span class="uk-nav-icon"><i class="mdi mdi-format-line-weight"></i></span><span class="uk-nav-title">Multi level</span>
+	                </a>
+	                <ul class="sc-sidebar-menu-sub">
+	                    <li><a href="#">Submenu 1</a></li>
+	                    <li class="sc-js-submenu-trigger sc-has-submenu">
+	                        <a href="#">Submenu 2</a>
+	                        <ul>
+	                            <li><a href="#">Submenu 2.1</a></li>
+	                            <li>
+	                                <a href="#">Submenu 2.2</a>
+	                                <ul>
+	                                    <li><a href="#">Submenu 2.2.1</a></li>
+	                                    <li><a href="#">Submenu 2.2.2</a></li>
+	                                    <li><a href="#">Submenu 2.2.3</a></li>
+	                                </ul>
+	                            </li>
+	                            <li><a href="#">Submenu 2.3</a></li>
+	                            <li><a href="#">Submenu 2.4</a></li>
+	                        </ul>
+	                    </li>
+	                    <li><a href="#">Submenu 3</a></li>
+	                    <li>
+	                        <a href="#">Submenu 4</a>
+	                        <ul>
+	                            <li>
+	                                <a href="#">Submenu 4.1</a>
+	                                <ul>
+	                                    <li><a href="#">Submenu 4.1.1</a></li>
+	                                    <li><a href="#">Submenu 4.1.2</a></li>
+	                                    <li><a href="#">Submenu 4.1.3</a></li>
+	                                </ul>
+	                            </li>
+	                            <li><a href="#">Submenu 4.2</a></li>
+	                            <li><a href="#">Submenu 4.3</a></li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+
+	    </div>
+    </div>
+	<div class="sc-sidebar-info">
+        version: 2.1.0
+	</div>
+</aside>
+<div id="sc-page-wrapper">
+	<div id="sc-page-content">
+
+		<ul id="sc-contact-list" class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-3@l" data-uk-grid>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="kayden49"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Roselyn										Paucek									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Bartoletti and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(452) 857-0476 x37136</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">sanford98@gerhold.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">64410 Beier Shoal Apt. 190
+Lueilwitzside, CT 76551-6456</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Quas architecto non adipisci sed hic est blanditiis tempore sapiente.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center md-bg-light-green-50">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_07_md.png" class="sc-avatar sc-border" alt="goyette.blaise"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Gracie										Lakin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Ferry-Yost</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">663-231-8473</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">lorena87@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">503 Mervin Lodge
+Franzstad, WY 71879-7471</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Eius pariatur tempore in corporis delectus et corporis explicabo.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="kassulke.chester"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Caleb										Lockman									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Streich, Bogisich and Schaefer</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(251) 924-0283</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">oren.lockman@yundt.biz</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">78889 Lakin Turnpike
+West Zeldahaven, CA 74566</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Aspernatur nesciunt aliquam est distinctio id perspiciatis.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center md-bg-brown-50">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="german67"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Susanna										Swaniawski									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Lynch Group</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">535-696-9523</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">ghill@stoltenberg.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">30137 Ashley Groves Suite 171
+West Joseshire, RI 60115</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Temporibus molestiae qui sequi modi nemo sint accusantium aperiam.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="bcartwright"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Chaim										Hoppe									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Wehner-Franecki</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+13702666692</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">katheryn27@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">813 Elisa Crossroad Apt. 975
+Marlinburgh, AK 74122-9964</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Autem et quibusdam iure incidunt earum eum eaque laborum ea culpa saepe.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="amara.carter"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Conner										Rempel									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Gleason, Barton and Kuhn</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-431-903-9147 x54206</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">ireynolds@crona.net</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">594 Leonel Forks
+Bartview, NC 26830</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Amet sit laboriosam voluptate ducimus voluptatibus voluptatem error expedita ea maxime dignissimos.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="simone96"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Curtis										Schimmel									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Cronin, Runolfsdottir and Vandervort</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(847) 425-3707</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">langosh.deanna@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">790 Jones Valleys
+South Amandabury, PA 83058-8389</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Dicta eaque optio odio sit quia necessitatibus error sint aspernatur commodi consequuntur sint quo.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="trycia.haag"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Bart										Schmitt									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Kuphal-Stracke</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(845) 975-0410 x797</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">alize.stroman@becker.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">5954 Kenyatta Stream
+Alanisview, SD 82155-0390</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Fugit ipsa est repellendus voluptatem voluptatem esse suscipit sed.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="sgraham"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Jordon										Konopelski									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Jenkins-Rosenbaum</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(882) 653-8350</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">heidenreich.dejuan@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">2547 Kayli Trafficway Apt. 246
+Janaton, HI 33123-0949</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Sed odit quisquam consequatur accusantium ipsa fugit minima.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="wkoepp"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Estella										Bednar									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Mayert-Fisher</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">474.439.9849</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">ritchie.georgianna@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">38106 Jerde Fords
+East Baileechester, WV 77826-6286</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Velit non repellat modi quidem vel modi sunt officiis et est fugiat facere.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_07_md.png" class="sc-avatar sc-border" alt="louvenia.walker"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Alexis										Swift									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Kilback-Morar</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">442-365-4548</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">lockman.andrew@gutkowski.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">267 Schroeder Islands
+Larsonton, CT 27735</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Nesciunt molestias unde cupiditate sed provident quas consectetur tempora velit qui hic accusamus.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="adolfo07"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Angelo										Bechtelar									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Von, Mills and Stehr</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">609-818-7019 x63600</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">savion19@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">648 Zakary Village
+South Tabitha, OK 69998-6226</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Hic itaque iusto modi doloribus tempora placeat dolorum itaque id possimus sit.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="williamson.yessenia"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Modesta										Lubowitz									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Lebsack, Pollich and Wintheiser</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1 (394) 773-7235</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">spencer.satterfield@renner.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">8868 Ullrich Cove Suite 151
+West Antonioville, AR 46266-0549</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Qui tenetur praesentium quia vel quos et occaecati magni consequatur.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_03_md.png" class="sc-avatar sc-border" alt="bailey.kianna"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Kory										Heidenreich									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Gerlach-Sauer</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-224-502-9811</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">marvin.dietrich@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">2869 Jayne Forges
+New Lucas, MD 29037</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Delectus est quia tenetur dolores aperiam sapiente sunt veniam et.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="lockman.jane"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Tiara										Stehr									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Schuster-Tromp</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">641-837-3304 x1854</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">antonio.ryan@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">6501 Reese Lodge
+Ashtonton, RI 88690-0141</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Voluptas blanditiis eum aliquam ea veritatis enim voluptate odit.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_07_md.png" class="sc-avatar sc-border" alt="ygreenholt"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Name										Lehner									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Zieme, Bernier and DuBuque</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">891.955.5327</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">aubree.schinner@botsford.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">743 Reanna Point
+Carrollborough, FL 57281-3233</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Inventore ut incidunt aut debitis eveniet saepe ducimus.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="ralph.spinka"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Camryn										Jenkins									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Wisoky LLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">726.790.5667 x9526</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">vprice@howe.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">5336 Osvaldo Trail Apt. 390
+Dickinsonland, SD 75748-0942</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Praesentium possimus asperiores nobis dolores et consequatur laboriosam repellat eius iste voluptatibus expedita laboriosam.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="kolby33"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Kraig										Kessler									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Bradtke LLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-240-969-9493 x73569</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">kling.darryl@schultz.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9672 Hilpert Fords Suite 215
+South Ayden, IL 62409-3474</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Veniam delectus numquam nihil et natus numquam itaque ut.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="corkery.vincenzo"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Cary										Strosin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Lindgren Inc</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">274.542.0984 x01372</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">nfriesen@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">983 Llewellyn Mountains
+East Lonview, CO 78183-0628</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Officia est maiores veritatis occaecati rerum eius ducimus et molestias consequatur neque sint.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="wpouros"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Javon										Cremin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Schneider LLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">457.769.8067</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">brandon.daugherty@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">4352 Leffler Greens
+Gulgowskiberg, TX 43732-7824</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Reprehenderit consequatur rerum laborum ut quo in illo dolores aut sint.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="ckrajcik"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Jaydon										Reichel									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Conroy, Zieme and Bernhard</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">368.592.9608</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">tswift@kris.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">566 Eduardo Mission Apt. 157
+Port Gabriel, WA 22262</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Dolorem nesciunt quisquam velit vitae ea necessitatibus et.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="pacocha.norberto"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Cindy										Jacobi									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Doyle-Douglas</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-574-487-1142</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">otis.mayert@wehner.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">7820 Lesch Village Apt. 843
+Hilpertfurt, DE 88787</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Fugiat aliquam atque delectus incidunt eos occaecati et corrupti fugit explicabo.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="clinton26"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Antonia										Mosciski									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Will Ltd</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-880-780-4191</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">dorothea.dibbert@prohaska.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">997 Vincent Branch
+Jacobshaven, WI 14608-7258</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Voluptate officiis omnis et qui repellat atque perferendis et repudiandae ut.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="linnie.willms"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Violet										Grimes									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Cummerata LLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-695-237-0183 x02407</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">alfreda09@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">949 Effertz Road Suite 830
+Lake Myriamfort, KY 75345-9059</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Non esse odio placeat quos iusto eius.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="gust.pollich"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Tristin										Gaylord									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Volkman-Zulauf</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(420) 896-9927 x105</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">eugenia32@cremin.org</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">15778 Toney Hollow Suite 334
+North Rodgerport, DE 17199-9379</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Maiores mollitia sint eaque velit velit sequi eius laborum adipisci.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_03_md.png" class="sc-avatar sc-border" alt="gborer"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Eino										Kiehn									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Howell-Hoppe</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(747) 313-3657 x38004</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">wilfredo.auer@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">76735 Gibson Dam Suite 183
+Davisfort, MN 92556</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Commodi quidem consequuntur fuga autem rerum cum.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="leslie.harris"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Vivien										Lakin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Lueilwitz, Hand and Hermann</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">657-893-4781</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">durgan.magdalen@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9611 Conner Vista
+Port Jaclynton, IA 60384-3036</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Aperiam vel reiciendis qui placeat blanditiis perspiciatis alias sit et aliquam architecto.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="rrippin"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Rylee										Osinski									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">McDermott-Casper</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-267-201-4031</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">powlowski.christelle@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">37201 Mateo Groves
+Willmsburgh, OR 44833-1791</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Quo facilis omnis amet et nostrum rem.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="tevin.kunze"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Layla										Cassin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Greenfelder PLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(949) 450-9858 x551</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">dina.schumm@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">31268 Felicity Trafficway
+Port Guillermoburgh, KS 49052-3395</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Nesciunt eos eum nesciunt eum expedita labore facilis tempore similique rem.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="davis.ole"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Josue										Watsica									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Boyle, O'Connell and Greenholt</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-964-641-5152</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">estevan.huels@kris.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">859 Wolf Circles
+Rautown, MO 06275-1043</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Id aut maiores beatae corrupti sit sit ullam mollitia perspiciatis quam ipsa totam.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="bennie.rowe"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Martine										Murphy									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Cruickshank, Thiel and Willms</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">405-282-9893</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">kbeer@lindgren.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">6532 Kaylah Courts
+Jacintheside, MI 57490</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Debitis sint cumque dolorem molestiae cum a iste est ducimus dolorem error.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="frice"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Hallie										Weber									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Runolfsson-Schaefer</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">753-599-7209</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">fwitting@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">8982 Cameron Roads Apt. 439
+Danielachester, DE 48526-3299</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Impedit adipisci dolores eveniet et eos error sit et perspiciatis corporis autem.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="mann.bernice"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Torrey										Bogisich									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Tremblay Group</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1.835.645.8142</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">sgoldner@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">563 Laura Row
+Beerchester, CT 21590</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Est aut et repellat mollitia autem similique non.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="kuhic.lionel"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Julius										Pacocha									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Erdman PLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-793-838-5138</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">bernier.trevion@king.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9496 Hackett Harbors Suite 810
+Pourosside, PA 42407-5350</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Aspernatur sint fuga nisi et praesentium et velit sit excepturi ea sit.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="nmcdermott"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Ciara										Schimmel									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Considine-Bogan</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">412.326.3107 x89631</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">colt89@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9766 Lizzie Lodge Suite 775
+Chloestad, HI 50871-3979</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Enim perferendis optio exercitationem et velit sed ad est non.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="trycia.mcclure"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Alessia										McKenzie									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Schulist-Gaylord</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-792-678-4288 x735</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">qconroy@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">2678 Nicolas Cape
+New Liliana, ID 92451</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Dolor debitis harum ea illum nesciunt itaque perspiciatis molestiae et hic recusandae molestiae quibusdam.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="wyatt00"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Aron										Heller									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Ward Inc</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-960-297-0567</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">edgardo44@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">985 Streich Drive
+Zackfort, KY 26212-5678</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Expedita sit et maxime aut eum ratione.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="mclaughlin.vallie"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Andrew										Kuhic									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Collins Ltd</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+13147120270</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">vchamplin@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">4434 Desiree Plaza
+Henriport, GA 26819</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Ut earum nulla corrupti sit et adipisci nostrum et sint tempore.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="gail98"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Moises										Hansen									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Wiegand, Hirthe and Lind</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">773-846-8184 x328</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">mayert.talon@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">746 Jacobson Skyway Suite 968
+East Maryton, OR 74445-9154</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Et perferendis dolore deserunt ipsam mollitia cum perferendis ea at sapiente.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="conroy.murl"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Josefa										Leffler									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Tromp-Watsica</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1 (676) 240-5120</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">jody22@prosacco.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">5874 Isaac Plaza
+Lestertown, KS 66369</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Iusto et nesciunt velit fugit repellendus deserunt ut est itaque iure.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="dlowe"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Haylee										Nitzsche									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Spencer and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">409.202.1697 x2161</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">mebert@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">551 Kylie Expressway Apt. 192
+Lake Deionfort, WI 48650</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Recusandae repellat exercitationem culpa debitis sunt voluptates dignissimos eum dolor iste ex et ab.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="orland.turner"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Edyth										Gerlach									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Schamberger, Smith and Nienow</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">670-689-9992</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">jgusikowski@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">7857 Margarette Island Apt. 669
+Corwinbury, CT 01555</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Animi minus debitis dignissimos iure consequatur voluptas consequatur.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_07_md.png" class="sc-avatar sc-border" alt="bertha02"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Cecil										Olson									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Osinski Inc</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-749-506-4489</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">kamryn.bogisich@witting.net</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">243 Stanford Throughway
+Magnoliafurt, GA 69712-2132</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Qui in magni et blanditiis eligendi quis eum vero dolore commodi consequuntur atque ipsa.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_07_md.png" class="sc-avatar sc-border" alt="josefina95"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Pete										Collier									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Weber-Yost</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-620-410-1282 x3942</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">bahringer.hilda@hotmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">526 Coty Trail Suite 191
+North Jody, IN 83549</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Voluptatum eos est adipisci et autem voluptatem provident non debitis repudiandae ut qui suscipit.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="twehner"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Vincenza										Blanda									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">McDermott and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">316-930-5318</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">zelda.zieme@medhurst.net</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">187 Kilback Common Suite 225
+New Cathrine, DE 58389</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Quas sint veniam sed alias odio nihil eius nobis repellendus rerum commodi perspiciatis iusto.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="rowe.charley"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Ulices										Jones									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Wisoky-Wiegand</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">1-507-545-5264 x4001</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">ziemann.garrick@borer.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">138 Emmerich Ford Apt. 254
+Virginieburgh, MI 03679</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Aliquam cum odio ea sequi veniam facilis numquam aspernatur eum deleniti ut tenetur rerum.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_06_md.png" class="sc-avatar sc-border" alt="mya.will"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Etha										Kunze									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Homenick, Krajcik and Jacobs</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">269.351.7846 x6401</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">dora01@fahey.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9534 Hirthe Falls Suite 073
+Emardshire, SD 49933</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Suscipit velit aut consequatur ea dolores similique est ut reprehenderit sunt consequuntur.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_03_md.png" class="sc-avatar sc-border" alt="gleichner.eudora"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Jeanie										Schroeder									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Kling, Rath and Ratke</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">776.320.3479 x8762</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">maryjane.nikolaus@roob.info</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">2477 Walker Isle Apt. 918
+Virginiahaven, KY 39473</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Dolore at beatae laborum autem laborum quod autem dignissimos quisquam et eius ducimus ut.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_01_md.png" class="sc-avatar sc-border" alt="lcrona"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Ignacio										Windler									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Jaskolski and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+17895195025</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">johnpaul.rempel@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">1871 Stiedemann Highway Suite 530
+Eastertown, KS 08130</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Impedit atque sunt est similique iusto nihil laudantium id quos sed.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_05_md.png" class="sc-avatar sc-border" alt="rodrigo.kreiger"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Aric										Koch									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Walsh and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-608-458-1429</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">dschaden@purdy.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">76938 Ziemann Lock Apt. 858
+South Rylanshire, NY 98137</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Reiciendis adipisci officia perspiciatis magni autem fuga eum unde.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="emmie34"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Kavon										Goyette									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Feil, Von and Botsford</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-987-751-5951</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">sylvester.dooley@stark.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">2422 Robin River
+Lake Furman, SC 10123</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Quam aut ipsa officia et et voluptas.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="tia74"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Shayna										Turcotte									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Fisher PLC</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">227.673.7527 x44167</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">millie.kassulke@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">300 Weber Dale
+North Diana, MS 56014-4164</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Culpa non voluptate enim ut et et voluptatem quos nemo nemo vero deserunt.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="reanna.nader"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Carrie										Schoen									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Mertz-Runte</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+1-428-203-2235</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">vonrueden.kiarra@schmeler.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">35720 Green Center
+Port Johanna, OR 95423-3068</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">In aut culpa aliquid est dolor harum explicabo quia.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_03_md.png" class="sc-avatar sc-border" alt="kimberly15"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Lavina										Sporer									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Stanton-Simonis</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">682-259-7102 x453</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">kabshire@bergnaum.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">894 Koss Ridge
+South Annetta, DC 92022-7842</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Tempore consequatur voluptas quasi suscipit itaque molestiae.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="ulittel"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Jade										Quigley									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Jacobs Ltd</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">815.360.3828 x43183</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">wuckert.collin@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">9917 Upton Square
+East Anibalfort, NM 67563-0747</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Quas sed et eaque reiciendis qui atque rerum laudantium.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="brandon.lind"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Morton										Raynor									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Hermann Group</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">(997) 564-2418 x69932</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">frankie62@gleason.org</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">52519 Iva Stream Suite 317
+Aliyaland, MO 91766-9191</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Eius commodi et non magnam ex ut exercitationem ut sed.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_04_md.png" class="sc-avatar sc-border" alt="rosalind.howe"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Warren										Champlin									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Emard-Quitzon</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">765.272.0908 x3230</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">doris.effertz@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">242 Cleora Springs
+Port Theresia, MT 28373</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Earum id qui ipsum perspiciatis pariatur voluptatem omnis rerum placeat ipsum magni blanditiis et.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_02_md.png" class="sc-avatar sc-border" alt="howe.ardella"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Izaiah										Lemke									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Schmeler and Sons</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">716-217-5777 x1224</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">quinn.padberg@gmail.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">5809 Americo Ramp Apt. 884
+South Nathan, NE 07051</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Illo ipsam veniam ut architecto architecto quibusdam neque.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="uk-card uk-card-hover">
+					<div class="uk-card-body sc-padding-remove">
+						<div class="uk-grid-divider uk-grid-collapse" data-uk-grid>
+							<div class="uk-width-1-3@l uk-flex uk-flex-middle uk-flex-center">
+								<div class="sc-padding-medium uk-text-center">
+									<img src="assets/img/avatars/avatar_08_md.png" class="sc-avatar sc-border" alt="berneice93"/>									<p class="sc-text-semibold uk-margin uk-margin-remove-bottom">
+										Lukas										Will									</p>
+									<p class="uk-margin-remove sc-color-secondary uk-text-medium">Bernhard-Bernhard</p>
+								</div>
+							</div>
+							<div class="uk-width-2-3@l">
+								<div class="sc-padding-medium">
+									<ul class="uk-list uk-list-divider">
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-phone"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove sc-text-semibold">+19682839935</p>
+												<span class="sc-list-secondary-text">Lorem ipsum dolor sit.</span>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-email"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove">isabelle93@yahoo.com</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-office-building"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">4647 Ericka Neck
+Reynoldsmouth, AL 69920</p>
+											</div>
+										</li>
+										<li class="sc-list-group">
+											<div class="sc-list-addon"><i class="mdi mdi-information-outline"></i></div>
+											<div class="sc-list-body">
+												<p class="uk-margin-remove uk-text-wrap">Ut delectus dolor animi officia repudiandae iusto quia fugit tenetur est animi velit temporibus.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+	</div>
+</div>
+
+
+<!-- async assets-->
+<script>
+// loadjs.js (assets/js/vendor/loadjs.js)
+loadjs=function(){function v(a,d){a=a.push?a:[a];var c=[],b=a.length,e=b,g,k;for(g=function(a,b){b.length&&c.push(a);e--;e||d(c)};b--;){var h=a[b];(k=n[h])?g(h,k):(h=p[h]=p[h]||[],h.push(g))}}function r(a,d){if(a){var c=p[a];n[a]=d;if(c)for(;c.length;)c[0](a,d),c.splice(0,1)}}function t(a,d){a.call&&(a={success:a});d.length?(a.error||q)(d):(a.success||q)(a)}function u(a,d,c,b){var e=document,g=c.async,k=c.preload;try{var h=document.createElement("link").relList.supports("preload")}catch(y){h=0}var l=
+(c.numRetries||0)+1,p=c.before||q,m=a.replace(/^(css|img)!/,"");b=b||0;if(/(^css!|\.css$)/.test(a)){var n=!0;var f=e.createElement("link");k&&h?(f.rel="preload",f.as="style"):f.rel="stylesheet";f.href=m}else/(^img!|\.(png|gif|jpg|svg)$)/.test(a)?(f=e.createElement("img"),f.src=m):(f=e.createElement("script"),f.src=a,f.async=void 0===g?!0:g);f.onload=f.onerror=f.onbeforeload=function(e){var g=e.type[0];if(n&&"hideFocus"in f)try{f.sheet.cssText.length||(g="e")}catch(w){18!=w.code&&(g="e")}if("e"==g&&
+(b+=1,b<l))return u(a,d,c,b);k&&h&&(f.rel="stylesheet");d(a,g,e.defaultPrevented)};!1!==p(a,f)&&(n?e.head.insertBefore(f,document.getElementById("main-stylesheet")):e.head.appendChild(f))}function x(a,d,c){a=a.push?a:[a];var b=a.length,e=b,g=[],k;var h=function(a,c,e){"e"==c&&g.push(a);if("b"==c)if(e)g.push(a);else return;b--;b||d(g)};for(k=0;k<e;k++)u(a[k],h,c)}function l(a,d,c){var b;d&&d.trim&&(b=d);var e=(b?c:d)||{};if(b){if(b in m)throw"LoadJS";m[b]=!0}x(a,function(a){t(e,a);r(b,a)},e)}var q=
+function(){},m={},n={},p={};l.ready=function(a,d){v(a,function(a){t(d,a)});return l};l.done=function(a){r(a,[])};l.reset=function(){m={};n={};p={}};l.isDefined=function(a){return a in m};return l}();
+</script>
+<script>
+	var html = document.getElementsByTagName('html')[0];
+	// ----------- CSS
+	// md icons
+	loadjs('assets/css/materialdesignicons.min.css', {
+        preload: true
+	});
+    // UIkit
+    loadjs('node_modules/uikit/dist/css/uikit.min.css', {
+        preload: true
+    });
+	// themes
+	loadjs('assets/css/themes/themes_combined.min.css', {
+        preload: true
+    });
+	// mdi icons (base64) & google fonts (base64)
+	loadjs(['assets/css/fonts/mdi_fonts.css', 'assets/css/fonts/roboto_base64.css', 'assets/css/fonts/sourceCodePro_base64.css'], {
+        preload: true
+    });
+	// main stylesheet
+	loadjs('assets/css/main.min.css', function() {});
+	// vendor
+	loadjs('assets/js/vendor.min.js', function () {
+			// scutum common functions/helpers
+			loadjs('assets/js/scutum_common.min.js', function() {
+				scutum.init();
+				loadjs('assets/js/views/pages/contact_list.min.js', { success: function() { $(function(){scutum.pages.contactList.init()}); } })
+				// show page
+				setTimeout(function () {
+					// clear styles (FOUC)
+					$(html).css({
+						'backgroundColor': '',
+					});
+					$('body').css({
+						'visibility': '',
+						'overflow': '',
+						'apacity': '',
+						'maxHeight': ''
+					});
+				}, 100);
+				// style switcher
+				loadjs(['assets/js/style_switcher.min.js', 'assets/css/plugins/style_switcher.min.css'], {
+					success: function() {
+						$(function(){
+							scutum.styleSwitcher();
+						});
+					}
+				});
+			});
+	});
+</script>
+
+<div id="sc-style-switcher">
+	<a href="#" class="sc-sSw-toggle"><i class="mdi mdi-tune"></i></a>
+	<p class="sc-text-semibold uk-margin-top-remove uk-margin-bottom">Themes</p>
+	<ul class="sc-sSw-theme-switcher">
+		<li class="active">
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-default" data-theme="">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-a" data-theme="sc-theme-a">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-b" data-theme="sc-theme-b">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-c" data-theme="sc-theme-c">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-d" data-theme="sc-theme-d">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-e" data-theme="sc-theme-e">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-f" data-theme="sc-theme-f">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-g" data-theme="sc-theme-g">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="sc-sSw-theme-switch sc-sW-theme-h" data-theme="sc-theme-h">
+				<span class="sc-sSw-theme-switch-color-1"></span>
+				<span class="sc-sSw-theme-switch-color-2"></span>
+			</a>
+		</li>
+	</ul>
+	<p class="sc-text-semibold uk-margin-large-top uk-margin-bottom">Main Menu</p>
+	<div class="uk-flex uk-flex-middle uk-margin-small-bottom">
+		<input type="checkbox" id="sc-menu-scroll-to-active" data-sc-icheck><label for="sc-menu-scroll-to-active">Scroll to active</label>
+	</div>
+    <div class="uk-flex uk-flex-middle">
+        <input type="checkbox" id="sc-menu-accordion-mode" data-sc-icheck><label for="sc-menu-accordion-mode">Accordion mode</label>
+    </div>
+</div>
+</body>
+</html>

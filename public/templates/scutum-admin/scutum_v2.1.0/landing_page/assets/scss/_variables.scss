@@ -1,0 +1,63 @@
+// Colors
+// ----------------------------------------
+$text-color:                                                    rgba(0,0,0,.87);
+$text-color-secondary:                                          rgba(0,0,0,.54);
+$muted-color:							                        rgba(0,0,0,.35);
+$white:                                                         #fff;
+
+$section-background:                                            #ECEFF1;
+
+$highlight-bg:							                        rgba(0,0,0,.08);
+
+$border-color:                                                  rgba(0,0,0,.12);
+$border-color:							                        rgba(0,0,0,.12);
+$border-color-hover:					                        rgba(0,0,0,.36);
+$border-color-dark:						                        rgba(0,0,0,.36);
+$border-color-light:					                        rgba(0,0,0,.05);
+
+$danger-color:							                        material-color('red','600');
+$danger-color-dark:						                        material-color('red','800');
+$danger-color-light:					                        material-color('red','400');
+$danger-color-bg:						                        material-color('red','50');
+
+$success-color:							                        material-color('light-green','600');
+$success-color-dark:					                        material-color('light-green','800');
+$success-color-light:					                        material-color('light-green','400');
+$success-color-bg:						                        material-color('light-green','50');
+
+$warning-color:							                        material-color('amber','600');
+$warning-color-dark:					                        material-color('amber','800');
+$warning-color-light:					                        material-color('amber','400');
+$warning-color-bg:						                        material-color('amber','50');
+
+$hover-color:							                        rgba(0,0,0,.08);
+$hover-color-dark:						                        rgba(0,0,0,.16);
+$hover-color-light:						                        rgba(255,255,255,.36);
+
+$button-hover-bg:						                        rgba(153,153,153,0.2);
+$button-active-bg:						                        rgba(153,153,153,0.4);
+
+// Theme
+// ----------------------------------------
+$theme-color:                                                   material-color('deep-purple','600');
+$theme-color-light:                                             material-color('deep-purple','50');
+$theme-color-dark:                                              material-color('deep-purple','800');
+
+$theme-color-complimentary:                                     material-color('red','600');
+$theme-color-light-complimentary:                               material-color('red','50');
+$theme-color-dark-complimentary:                                material-color('red','800');
+
+
+// Other
+// ----------------------------------------
+$easing:                                                        cubic-bezier(.55,0,.1,1);
+$border-radius:                                                 4px;
+
+$breakpoints: (
+	xxsmall: 380px,
+	xsmall: 480px,
+	small: 640px,
+	medium: 960px,
+	large: 1200px,
+	xlarge: 1600px
+);

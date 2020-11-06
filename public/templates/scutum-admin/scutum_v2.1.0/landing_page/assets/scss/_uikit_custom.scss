@@ -1,0 +1,117 @@
+.uk-card {
+	background: $white;
+	color: $text-color;
+	border-radius: $border-radius;
+	border: none;
+	@include elevation(3);
+	transition: box-shadow 200ms $easing;
+	&-footer {
+		&:not([class*="sc-padding"]) {
+			padding: 16px 24px;
+		}
+		border-radius: 0 0 $border-radius $border-radius;
+		> .sc-button-flat:first-child {
+			margin-left: -16px;
+		}
+	}
+	&-body {
+		&:not([class*="sc-padding"]) {
+			padding: 24px;
+		}
+		+ .uk-card-footer:not(.sc-card-footer-separator) {
+			padding-top: 0;
+		}
+	}
+	&-title {
+		margin: 0;
+		box-sizing: border-box;
+		@include font-size(18px);
+		font-weight: 500;
+		&.sc-actions-match {
+			min-height: 36px;
+			line-height: 36px;
+		}
+		+ p {
+			margin-top: 0;
+		}
+		.uk-card-subtitle {
+			@include font-size(14px);
+			font-weight: 400;
+		}
+	}
+	> .uk-card-title {
+		&:not([class*="sc-padding"]) {
+			padding: 16px 24px;
+		}
+		+ .uk-card-body {
+			padding-top: 0;
+		}
+	}
+	&-header {
+		border-radius: $border-radius $border-radius 0 0;
+		padding: 24px;
+		.uk-card-title {
+			margin: 0;
+			padding: 0;
+		}
+		.uk-text-meta {
+			margin: 0;
+		}
+		&-bg {
+			border-radius: $border-radius;
+			position: relative;
+			margin: 0 -8px;
+			box-sizing: border-box;
+			&-wrapper {
+				padding: 16px;
+			}
+			&-img {
+				&:not([class*="uk-height"]) {
+					height: 140px;
+				}
+				&:not([class*="uk-background"]) {
+					background-position: center center;
+				}
+				box-sizing: border-box;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+		}
+		&-light {
+			> * {
+				color: $white;
+			}
+		}
+		> [data-uk-icon] {
+			display: inline-block;
+			vertical-align: 4px;
+		}
+		&:not(.sc-card-header-separator) + .sc-card-content {
+			.uk-card-body {
+				padding-top: 0;
+			}
+		}
+		&:not(.sc-card-header-separator) + .uk-card-body {
+			padding-top: 0;
+		}
+		&.is_stuck {
+			background: $white;
+			box-shadow: 0 3px 6px 0 rgba(0,0,0,.2);
+		}
+	}
+	&.uk-card-hover:not(.uk-card-primary):not(.uk-card-secondary) {
+		&:hover {
+			@include elevation(8);
+		}
+	}
+	.sc-card-content {
+		transition: all 280ms $easing;
+	}
+	.uk-grid {
+		> * {
+			&:last-child {
+				border-radius: 0 $border-radius $border-radius 0;
+			}
+		}
+	}
+}
