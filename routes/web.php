@@ -21,13 +21,24 @@ Route::group(['prefix'=>'errors'],function(){
 Route::get('/', function () {
     return view('welcome');
 });
+Route::match(['get', 'post'], '/user/logout', 'Auth\LoginController@logout')->name('user.logout');
+Route::match(['get', 'post'], '/user/register', 'Auth\RegisterController@newRegister')->name('user.register');
 
 Route::group(['middleware' => ['auth'] ], function() {
     Route::group(['prefix' => 'upload'], function () {
         Route::post('file', "Api\V1\UploadFileController@uploadFile")->name('upload_file');
     });
     Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function() {
-        
+        Route::group(['prefix' => 'file', 'as' =>'dashboard.file.'], function () {
+           
+            Route::get('index','FileController@index')->name('index');
+            Route::get('datatable','FileController@datatable')->name('datatable');
+            Route::get('create','FileController@create')->name('create');
+            Route::post('store','UserController@store')->name('store');
+            Route::match(['get', 'post'],'download/{id}','FileController@download')->name('download'); 
+            Route::get( 'download-page/{id}','FileController@downloadPage')->name('download-page'); 
+            
+        });
         
         
         Route::group(['prefix' => 'config', 'as' =>'dashboard.config.'], function () {

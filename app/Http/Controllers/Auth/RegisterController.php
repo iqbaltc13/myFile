@@ -8,6 +8,13 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Auth;
+use stdClass;
+use DateTime;
+use DateInterval;
+use DB;
+use App\Http\Controllers\Helpers\WebHelperController;
 
 class RegisterController extends Controller
 {
@@ -52,9 +59,38 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'username' => ['required', 'string', 'max:255', 'unique:users'],
+           
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    }
+
+    public function newRegister(Request $request){
+        $dateTime = new DateTime();
+        if($request->method()=="POST"){
+            $this->validate($request, [
+                'name'                      =>'required|string|max:255',
+                'email'                     =>'required|string|email|unique:users,email',
+                'password'                  =>'required|string|confirmed'
+               
+            ]);
+         
+            $arrCreateUser=[
+               
+                    'name'                  => $request->name,
+                    'email'                 => $request->email,
+                   
+                    'password'              => $request->password,
+                   
+            ];
+            $createUser =User::create($arrCreateUser);
+           
+            
+
+            return redirect()->route('login')->with('success', 'Registrasi Sukses');
+        }else{
+            
+            return redirect()->route('register');
+        }
     }
 
     /**
@@ -68,7 +104,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            // 'username' => $data['username'],
+          
             'password' => Hash::make($data['password']),
         ]);
     }

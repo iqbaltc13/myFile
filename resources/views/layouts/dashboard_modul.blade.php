@@ -57,124 +57,19 @@
 						@endif
 					</a>
                 </li>
-                <li class="sc-has-submenu">
-				
-					<a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">
-						@if(!empty($sidebar) )
-							@if($sidebar == 'master')
-								<b>Master</b>	
-							@else
-								Master
-							@endif
-						@endif
-					</a>
-                    <ul style="display: none;">
-						<li>
-                            <a href="{{route('dashboard.master.role.index')}}">Role</a>
-                        </li>
-                        <li>
-                            <a href="{{route('dashboard.master.permission.index')}}">Permission</a>
-                        </li>
-                       
-                    </ul>
-                </li>
                
-                <li >
-					<a href="{{route('dashboard.user.index')}}">
-						@if(!empty($sidebar) )
-							@if($sidebar == 'pengaturan')
-								<b>Pengaturan</b>	
-							@else
-								Pengaturan
-							@endif
-						@endif
-					</a>
-                    <ul style="display: none;">
-                        <li>
-                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.0.0</a>
-                        </li>
-                        <li>
-                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.0.0</a>
-                        </li>
-                        <li class="sc-has-submenu">
-                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.0.0</a>
-                            <ul>
-                                <li>
-                                    <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.0</a>
-                                </li>
-                                <li class="sc-has-submenu">
-                                    <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.0</a>
-                                    <ul>
-                                        <li>
-                                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.1</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.1</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.1</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://scutum-html.tzdthemes.com/layout-top_menu.html#">Level 1.1.1</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-				<li class="uk-visible@s">
-					<a href="#">
-						<span class="mdi mdi-bell uk-display-inline-block">
-							<span class="sc-indicator md-bg-color-red-600"></span>
-						</span>
-					</a>
-					<div class="uk-navbar-dropdown md-bg-grey-100">
-						<div class="sc-padding-medium sc-padding-small-ends">
-							<div class="uk-text-right uk-margin-medium-bottom">
-								<button class="sc-button sc-button-outline sc-button-mini sc-js-clear-alerts">Clear all</button>
-							</div>
-							<ul class="uk-list uk-margin-remove" id="sc-header-alerts">
-								<li class="sc-border sc-round md-bg-white">
-									<div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-alert-outline md-color-red-600"></i></div>
-									<div class="uk-flex-1 uk-text-small">
-										Information Page Not Found!
-									</div>
-								</li>
-								<li class="uk-margin-small-top sc-border sc-round md-bg-white">
-									<div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-email-check-outline md-color-blue-600"></i></div>
-									<div class="uk-flex-1 uk-text-small">
-										A new password has been sent to your e-mail address.
-									</div>
-								</li>
-								<li class="uk-margin-small-top sc-border sc-round md-bg-white">
-									<div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-alert-outline md-color-red-600"></i></div>
-									<div class="uk-flex-1 uk-text-small">
-										You do not have permission to access the API!
-									</div>
-								</li>
-								<li class="uk-margin-small-top sc-border sc-round md-bg-white">
-									<div class="uk-margin-right uk-margin-small-left"><i class="mdi mdi-check-all md-color-light-green-600"></i></div>
-									<div class="uk-flex-1 uk-text-small">
-										Your enquiry has been successfully sent.
-									</div>
-								</li>
-							</ul>
-							<div class="uk-text-medium uk-text-center sc-js-empty-message sc-text-semibold sc-padding-ends" style="display: none">No alerts!</div>
-						</div>
-					</div>
-				</li>
+               
+                
+				
 				<li>
 					<a href="#"><img src="{{$assetUrl}}user.png" alt=""></a>
 					<div class="uk-navbar-dropdown uk-dropdown-small">
 						<ul class="uk-nav uk-nav-navbar">
-						<li><a href="{{route('dashboard.profil.index')}}">Profile</a></li>
-							<li><a href="{{route('dashboard.profil.edit')}}">Edit Profile</a></li>
-							<li><a href="{{route('dashboard.profil.change-password')}}">Change Password</a></li>
+						
 							<li><a href="{{ route('logout') }}"
 								onclick="event.preventDefault();
 								document.getElementById('logout-form').submit();">Log Out</a>
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								<form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
 									@csrf
 								</form>
 							</li>
@@ -189,7 +84,7 @@
 
 @if(!empty($sidebar))
 	@php
-		$sidebarView = 'layouts.sidebar.sidebar_'.$sidebar;	
+		$sidebarView = 'layouts.sidebar.sidebar_file';	
 	@endphp
 	@include($sidebarView)
 @endif

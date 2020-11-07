@@ -26,7 +26,7 @@
 					</div>
 					
 					<div id="sc-register-form" class="sc-toggle-login-register">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('user.register') }}">
                             @csrf
                             <div class="sc-login-page-inner">
                                 <div class="uk-margin-medium">
