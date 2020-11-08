@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth'] ], function() {
             Route::get('index','FileController@index')->name('index');
             Route::get('datatable','FileController@datatable')->name('datatable');
             Route::get('create','FileController@create')->name('create');
-            Route::post('store','UserController@store')->name('store');
+            Route::post('store','FileController@store')->name('store');
             Route::match(['get', 'post'],'download/{id}','FileController@download')->name('download'); 
             Route::get( 'download-page/{id}','FileController@downloadPage')->name('download-page'); 
             

@@ -9,7 +9,7 @@
                         <span data-uk-icon="icon:home;ratio:1.4" class="uk-margin-medium-right"></span>
                     </div>
                     <h3 class="uk-card-title">
-                        Upload File
+                        Download File
                     </h3>
                    
                 </div>

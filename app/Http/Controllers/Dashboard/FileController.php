@@ -7,6 +7,22 @@ use Illuminate\Http\Request;
 use Auth;
 use DataTables;
 use App\Models\File;
+use App\User;
+use Hash;
+
+use Carbon\Carbon;
+use \Laravel\Passport\Http\Controllers\AccessTokenController;
+use Psr\Http\Message\ServerRequestInterface;
+use Validator;
+use DB;
+use App\Http\EncapsulatedApiResponder;
+use App\Models\ConfirmationUser;
+use Mail;
+use Illuminate\Support\Str;
+use App\Models\Business;
+use App\Models\Employee;
+use App\Models\UserRecord;
+use App\Models\UserWithToken;
 
 class FileController extends Controller
 {
@@ -51,7 +67,7 @@ class FileController extends Controller
         $start = microtime(true);	
         
         $user 			   = $request->user();
-        //$ext 			   = $request->file('file')->getClientOriginalExtension();
+        
         $ext               = $request->file->extension();
        
         $current_time 	   = Carbon::now()->toDateTimeString();
@@ -67,27 +83,41 @@ class FileController extends Controller
         DB::beginTransaction();
         $file 			   = new File();
        
-        $file->caption     = "";
+        
         $file->name        = $user->id.'_'.$file_name.'_'.$request->name.'.'.$ext;
         $file->full_path   = $full_path;
         $file->path        = $path.$file_name;
-        $file->full_path   = asset($path.$file_name);
+        
         $file->user_id 	   = $user->id;
         $file->save();
         
         DB::commit();
-        return redirect()->route($this->route.'index')
+      
+        return redirect()->route($this->route.'download-page',['id' => $file->id])
         ->with('success', 'Sukses menambah file');
+        
     }
     public function download(Request $request,$id){
         $file = File::where('id',$id)->first();
-        $filePath = public_path()."/uploads/zip/".$file->name;
-        $headers = array('Content-Type: application/pdf',);
-        return response()->download($filePath, 'info.pdf',$headers);
+        if($file){
+            $filePath = $file->full_path;
+            if (Auth::id() == $file->user_id){
+                return redirect()->to($filePath);
+            }
+            else{
+                return redirect()->route($this->route.'index')
+                ->with('error', 'Anda tidak punya akses untuk file ini');
+            }
+           
+          
+        }
+        return redirect()->route($this->route.'index')
+        ->with('error', 'File Tidak ditemukan');
+       
        
     }
     public function downloadPage(Request $request,$id){
-        $file = File::where('id',$id)->first();
+        $data = File::where('id',$id)->first();
         $arrReturn=[
             'sidebar' =>'file',
             'data'    =>$data,

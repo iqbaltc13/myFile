@@ -242,9 +242,11 @@ success: function() {
 	console.log(currentUrlName);
 	
 	let element = document.getElementById(currentUrlName);
-	console.log(element);
-	element.classList.add("sc-page-active");
-	element.classList.add("sc-button-danger");
+	if(element){
+		element.classList.add("sc-page-active");
+		element.classList.add("sc-button-danger");
+	}
+	
 
 
 </script>

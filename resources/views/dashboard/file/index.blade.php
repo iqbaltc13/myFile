@@ -30,6 +30,15 @@
           
 
         @endif
+        @if(Session::get('error'))
+         
+        <div class="uk-alert-danger" data-uk-alert>
+            <a class="uk-alert-close" data-uk-close></a>
+              {{Session::get('error')}}
+        </div>
+          
+
+        @endif
     </div>
     <hr class="uk-margin-remove">
     <div class="uk-card-body">
@@ -179,7 +188,8 @@
                         data: null,
                         searchable: false,
                         render: function(data){
-                            let linkDownload = "";
+                            let linkDownload = "{{route('dashboard.file.download-page', ':id')}}";
+                                linkDownload = linkDownload.replace(':id', data.id);
                               
                             let aksi='';
                             aksi += '<div><a class="sc-button sc-button-primary sc-js-button-wave-light" href="'+linkDownload+'"><span data-uk-icon="icon: pencil"></span></span> Download</a></div>';
