@@ -15,6 +15,7 @@ use DateTime;
 use DateInterval;
 use DB;
 use App\Http\Controllers\Helpers\WebHelperController;
+use App\Http\Controllers\Helpers\EmailHelperController;
 
 class RegisterController extends Controller
 {
@@ -46,6 +47,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->email_helper = new EmailHelperController;
     }
 
     /**
@@ -73,6 +75,8 @@ class RegisterController extends Controller
                 'password'                  =>'required|string|confirmed'
                
             ]);
+           
+           
          
             $arrCreateUser=[
                
@@ -80,17 +84,46 @@ class RegisterController extends Controller
                     'email'                 => $request->email,
                    
                     'password'              => $request->password,
+                    'status'                => 0,
+                    
                    
             ];
             $createUser =User::create($arrCreateUser);
+
+            $account = new stdClass;
+            
+            $account->view             = 'otp';
+            $account->receiver_email   = $request->email;
+            $account->content          = 'Akun Baru MyFile';
+            $account->subject          = 'Akun Baru MyFile';
+            $account->sender_email     = 'noreply@myfile.id';
+            $account->sender_name      = 'Admin MyFile';
+            $account->link_otp         = url('/').'/aktivasi-akun/'. md5($request->email).'?email='.$request->email;
+
+            $this->email_helper->sendMail('otp',$account);
            
             
 
-            return redirect()->route('login')->with('success', 'Registrasi Sukses');
+            return redirect()->route('login')->with('success', 'Registrasi Sukses, 
+            silahkan aktivasi akun anda, link aktivasi telah dikirim ke email anda');
         }else{
             
             return redirect()->route('register');
         }
+    }
+    public function aktivasi(Request $request,$kode){
+        
+        $dateTime = new DateTime();
+        
+        if(md5($request->email)==$kode){
+            User::where('email',$request->email)->update([
+                'verified_at' => $dateTime->format('Y-m-d H:i:s'),
+                'status'      => 1,  
+            ]);
+            return redirect()->route('login')->with('success', 'Aktivasi akun sukses');
+        }
+        return redirect()->route('login')->with('error', 'Aktivasi akun gagal');
+        
     }
 
     /**

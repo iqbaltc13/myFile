@@ -19,6 +19,26 @@
 
 	<div class="uk-flex uk-flex-center uk-flex-middle sc-login-page-wrapper">
 		<div class="uk-width-2-3@s uk-width-1-2@m uk-width-1-3@l uk-width-1-4@xl">
+			<div id="alert-elements" >
+				@if(Session::get('success'))
+				 
+				<div class="uk-alert-success" data-uk-alert>
+					<a class="uk-alert-close" data-uk-close></a>
+					  {{Session::get('success')}}
+				</div>
+				  
+		
+				@endif
+				@if(Session::get('error'))
+				 
+				<div class="uk-alert-danger" data-uk-alert>
+					<a class="uk-alert-close" data-uk-close></a>
+					  {{Session::get('error')}}
+				</div>
+				  
+		
+				@endif
+			</div>
 			<div class="uk-card">
 				<div class="uk-card-body">
 					<div class="sc-login-page-logo">

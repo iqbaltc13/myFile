@@ -24,7 +24,7 @@ class User extends Authenticatable
         'name', 'email', 'password', 'phone', 'is_active','built_in',
         'email_verified_at','phone_number_verified_at','last_access','last_signedin',
         'last_update_location','latitude','longitude',
-        'access_token'
+        'access_token','status','verified_at'
     ];
 
     /**

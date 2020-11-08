@@ -21,6 +21,7 @@ Route::group(['prefix'=>'errors'],function(){
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('aktivasi-akun/{kode}','Auth\RegisterController@aktivasi')->name('aktivasi-akun');
 Route::match(['get', 'post'], '/user/logout', 'Auth\LoginController@logout')->name('user.logout');
 Route::match(['get', 'post'], '/user/register', 'Auth\RegisterController@newRegister')->name('user.register');
 

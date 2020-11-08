@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if($user->status != 1 || is_null($user->status)){
+            Auth::logout();
+            return redirect()->route('login')->with('error', 'Akun belum diaktivasi');
+        }
         $arrReturn=[
             'sidebar' =>'file',
         ];
