@@ -1,10 +1,10 @@
-# Laravel 6.2 - Template Scutum
+# My File - Template Scutum
 
-## Very Quick start
-- git clone 'https://gitlab.com/artcak/starterProject/web/laravel6.2-scutum.git'
+## Very Quick start Install
+- git clone 'https://gitlab.com/iqbaltc13/tes_digimaasia.git'
 - composer install
 - composer run-script post-root-package-install
-- setting .env
+- setting .env copy from .env.example
 - php artisan migrate
 - php artisan key:generate
 - php artisan passport:install --force

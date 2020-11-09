@@ -23,13 +23,17 @@ use App\Models\Business;
 use App\Models\Employee;
 use App\Models\UserRecord;
 use App\Models\UserWithToken;
+use App\Http\Controllers\Helpers\DirectoryController;
+        
+
 
 class FileController extends Controller
 {
     public function __construct()
     {
-        $this->route='dashboard.file.';
-        $this->view='dashboard.file.';
+        $this->route            = 'dashboard.file.';
+        $this->view             = 'dashboard.file.';
+        $this->directory_helper = new DirectoryController();
     }
     public function index(){
         $arrReturn=[
@@ -64,6 +68,9 @@ class FileController extends Controller
             'file' => 'required|mimes:zip',
             'name' => 'required|string|max:255',
         ]);
+        $zipFile = new \PhpZip\ZipFile();
+        $zipFile->openFile($request->file('file'));
+        
         $start = microtime(true);	
         
         $user 			   = $request->user();
@@ -90,6 +97,10 @@ class FileController extends Controller
         
         $file->user_id 	   = $user->id;
         $file->save();
+
+        $createExtractFolder= public_path('/uploads/zip/'.$file->id);
+        $this->directory_helper->create($createExtractFolder);
+        $zipFile->extractTo(public_path('/uploads/zip/'.$file->id));
         
         DB::commit();
       
@@ -114,6 +125,32 @@ class FileController extends Controller
         return redirect()->route($this->route.'index')
         ->with('error', 'File Tidak ditemukan');
        
+       
+    }
+    public function download2(Request $request,$id){
+        $file = File::where('id',$id)->first();
+        
+        if($file){
+            $filePath = $file->full_path;
+            if (Auth::id() == $file->user_id){
+                $zipFile = new \PhpZip\ZipFile();
+                $zipFile
+        
+                ->addDir(__DIR__, public_path('/uploads/zip/'.$file->id)) // add files from the directory
+                ->saveAsFile($file->name) // save the archive to a file
+                ->close(); // close archive
+                dd($zipFile);
+            }
+            else{
+                return redirect()->route($this->route.'index')
+                ->with('error', 'Anda tidak punya akses untuk file ini');
+            }
+           
+          
+        }
+        return redirect()->route($this->route.'index')
+        ->with('error', 'File Tidak ditemukan');
+
        
     }
     public function downloadPage(Request $request,$id){
