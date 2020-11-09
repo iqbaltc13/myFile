@@ -9,6 +9,7 @@
 - php artisan key:generate
 - php artisan passport:install --force
 - php artisan db:seed --class=DatabaseSeeder
+- buat folder zip pada folder public
 
 ## Permission
 - chmod -R 775 storage

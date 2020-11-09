@@ -9,6 +9,7 @@ use DataTables;
 use App\Models\File;
 use App\User;
 use Hash;
+use File as Files;
 
 use Carbon\Carbon;
 use \Laravel\Passport\Http\Controllers\AccessTokenController;
@@ -24,6 +25,7 @@ use App\Models\Employee;
 use App\Models\UserRecord;
 use App\Models\UserWithToken;
 use App\Http\Controllers\Helpers\DirectoryController;
+use ZipArchive;
         
 
 
@@ -133,13 +135,32 @@ class FileController extends Controller
         if($file){
             $filePath = $file->full_path;
             if (Auth::id() == $file->user_id){
+                $fileFromFolder = scandir(public_path('/uploads/zip/'.$file->id));
+                unset($fileFromFolder[0], $fileFromFolder[1]);
                 $zipFile = new \PhpZip\ZipFile();
-                $zipFile
-        
-                ->addDir(__DIR__, public_path('/uploads/zip/'.$file->id)) // add files from the directory
-                ->saveAsFile($file->name) // save the archive to a file
-                ->close(); // close archive
-                dd($zipFile);
+                
+                $zipFile->setCompressionLevel(\PhpZip\Constants\ZipCompressionLevel::MAXIMUM);
+                
+                //return $zipFile->outputAsAttachment('download'.$file->name,'application/zip');
+                $zip = new ZipArchive;
+   
+                $fileName = 'download.zip';
+           
+                if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE)
+                {
+                    $getFiles = Files::files(public_path('/uploads/zip/'.$file->id));
+           
+                    foreach ($getFiles as $key => $value) {
+                        $relativeNameInZipFile = basename($value);
+                        $zip->addFile($value, $relativeNameInZipFile);
+                    }
+                     
+                    $zip->close();
+                }
+                dd($zip);
+            
+                return response()->download(public_path($fileName));
+                
             }
             else{
                 return redirect()->route($this->route.'index')
